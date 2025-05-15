@@ -1,3 +1,65 @@
+# AD GPO Password Policy Project
+
+## 🎯 Objective
+Strengthen Active Directory (AD) security by enforcing complex password requirements to mitigate brute-force attacks.
+
+---
+
+## 🔧 Key Steps & Technical Highlights
+
+### 🛠️ GPO Creation
+- Created a custom Group Policy Object (GPO) named `ECCPassword Policy` linked to the `NDE.com` domain using **Group Policy Management Console (GPMC)**.
+
+### 🔐 Policy Settings
+- Enforced password complexity: uppercase, lowercase, numbers, and special characters.
+- Minimum length: 6+ characters.
+- Blocked use of username fragments in passwords.
+- Enabled "User must change password at next logon" for testing.
+
+### 📢 Policy Enforcement
+- Marked the GPO as **Enforced** to override conflicting policies (e.g., Default Domain Policy).
+- Used **Security Filtering** to apply the policy only to user `martin@nde.com`.
+
+### 🧪 Validation & Testing
+- **Simulated attack:** `test123` denied as weak password.
+- **Successful test:** `Test@123` accepted, confirming policy enforcement.
+- Ran `gpupdate /force` on domain-joined web server to apply policy.
+
+### 🌐 Domain Integration
+- Web server successfully joined to `NDE.com` domain.
+- Policy applied across devices.
+
+---
+
+## 🔒 Standout Features
+- **Least-Privilege Test:** Targeted one user (`Martin`) for isolated testing.
+- **Defense-in-Depth:** Used "Enforced" flag to ensure policy took precedence.
+- **Real-World Validation:** Demonstrated rejection of weak passwords.
+
+---
+
+## 🧰 Technical Environment
+- **Tools Used:** `gpmc.msc`, `dsa.msc`, `Command Prompt (gpupdate)`
+- **Domain:** `NDE.com`
+- **Test User:** `martin@nde.com`
+
+---
+
+## 💡 Why This Project Matters
+This project showcases hands-on expertise in enterprise security hardening using native Windows tools. It is a real-world demonstration of how Group Policy can defend against common credential-based attacks, with clear validation and impact.
+
+---
+
+## 📁 Structure
+
+---
+
+## 🚀 Future Improvements
+- Add PowerShell scripts for GPO export/import
+- Capture event logs showing password rejection
+- Include screenshots (if available)
+
+---
 # Project: Implementing Password Policies via Windows Group Policy
 
 ## Objective
